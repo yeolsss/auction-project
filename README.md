@@ -1,46 +1,326 @@
-# Getting Started with Create React App
+## Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ <br/>
 
-## Available Scripts
+# **엘리트 옥션**
+<br/>
+⭐️ 자신의 중고 물품을 경매형식으로 판매하는 사이트
 
-In the project directory, you can run:
+ <br/>  <br/>
 
-### `yarn start`
+📆 프로젝트 기간: 2023. 12. 26 ~ 2024. 01. 03 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<br/>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 팀 소개
+이동탁 : https://tak-web-front.tistory.com/ <br/>
+김은비 : https://velog.io/@eunbi/posts <br/>
+이다원 : https://velog.io/@dawnrose <br/>
+권경열 : https://velog.io/@yeol10 <br/>
 
-### `yarn test`
+ <br/>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 프로젝트 소개 <br/>
+```
+저희 프로젝트는 사용자들에게 손쉽게 원하는 물품을 경매할 수 있도록 하는 사이트입니다. 판매자는 원하는 물품을 등록하면서 상세한 정보, 경매 기간, 품질, 배송 방법, 입찰 하한가 등을 설정할 수 있습니다. 구매자는 경매 게시글에 편리하게 입찰가를 제시하며 이는 하한가보다 높아야 합니다. 경매 기간이 시작되기 전과 종료된 후에는 입찰이 불가능하며, 경매가 진행되는 동안 남은 시간이 실시간으로 표시됩니다.
+회원 가입 및 로그인 후에는 사용자들이 상품을 등록하고 찜하기를 할 수 있으며, 궁금한 점을 질문하고 답변할 수 있는 기능을 제공합니다. 프로필 페이지에서는 등록한 게시물을 관리하고 수정할 수 있으며, 찜한 목록도 관리할 수 있습니다.
+프로필 수정 탭에서는 회원 정보를 자유롭게 변경할 수 있고 홈화면을 제외한 모든 기능은 정상적인 회원 정보가 등록된 로그인 상태에서만 이용 가능합니다.
+```
+<br />
 
-### `yarn build`
+---
+## Stack <br/>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Enviroment   <br/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img src="https://img.shields.io/badge/GIT-F05032?style=for-the-badge&logo=Git&logoColor=white"/></a>
+<img src="https://img.shields.io/badge/GITHUB-181717?style=for-the-badge&logo=GitHub&logoColor=white"/></a>
+<img src="https://img.shields.io/badge/VISUAL STUDIO CODE-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white"/></a>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ <br/>
 
-### `yarn eject`
+### Config  <br/>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<img src="https://img.shields.io/badge/NPM-CB3837?style=for-the-badge&logo=NPM&logoColor=white"/></a>
+<img src="https://img.shields.io/badge/YARN BERRY-2C8EBB?style=for-the-badge&logo=Yarn&logoColor=white"/></a>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ <br/>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Development
+<img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=HTML5&logoColor=white"/></a>
+<img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=CSS3&logoColor=white"/></a>
+<img src="https://img.shields.io/badge/TYPESCRIPT-3178C6?style=for-the-badge&logo=typescript&logoColor=black"/></a> 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<br />
 
-## Learn More
+#### 전역 상태관리
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- 서버 상태 관리
+<img src="https://img.shields.io/badge/React Query-61DAFB?style=for-the-badge&logo=reactquery&logoColor=white"/></a>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 클라이언트 상태 관리
+<img src="https://img.shields.io/badge/Redux-764ABC?style=for-the-badge&logo=redux&logoColor=white"/></a>
+
+
+ <br/>
+
+### Database
+
+<img src="https://img.shields.io/badge/SUPABASE-3FCF8E?style=for-the-badge&logo=supabase&logoColor=black"/></a>  
+
+ <br/>
+
+### Communication
+
+<img src="https://img.shields.io/badge/SLACK-4A154B?style=for-the-badge&logo=Slack&logoColor=white"/></a>
+<img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white"/></a>
+<img src="https://img.shields.io/badge/FIGMA-F24E1E?style=for-the-badge&logo=Figma&logoColor=white"/></a>
+
+ <br/>
+ 
+---
+## 화면 구성 및 주요 기능
+
+ <br/>
+ 
+ 
+- 메인 페이지
+    - 카테고리별 필터링 및 정렬 기능
+    - 좋아요 기능 
+    - useInfinityQuery를 통한 무한 스크롤 구현
+  
+ <br/>
+ 
+- 로그인 / 회원가입 페이지
+    - supabase Auth를 통한 로그인과 회원가입 구현
+    - supabase 소셜 로그인 기능을 사용한 소셜로그인 구현과 쿼리를 통한 회원정보 저장
+    - react-hook-form을 사용한 로그인 및 회원가입 유효성 검사
+ <br/>
+
+- 상세 페이지
+    - 경매 시간과 입찰값을 supabase Realtime을 이용하여 구현
+    - 현재 최고 입찰가와 현재까지 입찰한 유저 정보 및 유저의 입찰값을 한번에 볼 수 있도록 구현
+    - QnA를 통해 해당 게시물의 질문과 답변을 할 수 있도록 구현
+ <br/>
+ 
+- 게시물 작성 페이지
+    - 경매품 이름, 소개, 최소입찰가격, 경매시작시간, 경매종료시간, 카테고리, 이미지를 입력받아 supabase에 insert
+    - 유효성 검사를 통해 ""값, 글자수제한, 날짜제한, 이미지수 제한등을 유효성 검사
+ <br/>
+ 
+- 게시물 수정 페이지
+    - 먼저 유저가 등록한 데이터 값을 화면에 뿌려주고 변경사항이 있으면 수정
+    - auction_status를 받아와 경매가 진행중이면 최소입찰가겻, 경매 시작시간 변경 불가
+ <br/>
+ 
+- 프로필 페이지
+    - 페이지네이션을 통한 유저가 작성한 게시물 목록과 찜한 목록 구현
+    - 게시물 수정 및 삭제 기능과 찜한 목록에서 제거 기능 구현
+    - supabase를 통한 회원정보(프로필 이미지, 닉네임, 주소) 업데이트 기능
+    - 유저가 작성한 개시물 수정, 삭제 가능
+ <br/>
+
+ 
+- 검색창
+    - supabase의 ilike와 or 쿼리를 사용한 검색 키워드 및 카테고리 별 검색 기능 구현
+
+ <br/>
+ 
+---
+## 아키텍처
+
+
+### 와이어프레임 <br/>
+
+[프로젝트 와이어프레임](https://www.figma.com/file/8EulxNUZx6EYdiQcVrxRtQ/Untitled?type=design&node-id=0-1&mode=design&t=M3zOyCeokyddmHGc-0)
+
+<br/>
+
+### ERD <br/>
+
+[프로젝트 ERD
+](https://teamsparta.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F83c75a39-3aba-4ba4-a792-7aefe4b07895%2F7375634c-2a28-470b-853a-075187172f76%2FScreen_Shot_2023-12-27_at_10.54.06_AM.png?table=block&id=10c593ca-8a16-4f0b-9b6f-ad24222b5612&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=1310&userId=&cache=v2)
+
+ <br/>
+
+### 파일 구조
+```
+📦src
+ ┣ 📂api
+ ┃ ┣ 📜auction.ts
+ ┃ ┣ 📜auth.ts
+ ┃ ┣ 📜bid.ts
+ ┃ ┣ 📜connectSupabase.ts
+ ┃ ┣ 📜likes.ts
+ ┃ ┣ 📜qna.ts
+ ┃ ┗ 📜setAuction.ts
+ ┣ 📂common
+ ┃ ┣ 📜dayjs.ts
+ ┃ ┣ 📜formatUtil.ts
+ ┃ ┗ 📜util.ts
+ ┣ 📂components
+ ┃ ┣ 📂Home
+ ┃ ┃ ┣ 📜AuctionList.tsx
+ ┃ ┃ ┣ 📜CategorySelector.tsx
+ ┃ ┃ ┗ 📜LikeButton.tsx
+ ┃ ┣ 📂common
+ ┃ ┃ ┣ 📜Avatar.tsx
+ ┃ ┃ ┗ 📜Button.tsx
+ ┃ ┣ 📂detail
+ ┃ ┃ ┣ 📂bidPopup
+ ┃ ┃ ┃ ┣ 📜BidCard.tsx
+ ┃ ┃ ┃ ┣ 📜BidList.tsx
+ ┃ ┃ ┃ ┣ 📜BidPopUpLayout.tsx
+ ┃ ┃ ┃ ┣ 📜PopupToggleButton.tsx
+ ┃ ┃ ┃ ┗ 📜Title.tsx
+ ┃ ┃ ┣ 📂qna
+ ┃ ┃ ┃ ┣ 📜QnaButtonGroup.tsx
+ ┃ ┃ ┃ ┣ 📜QnaTextArea.tsx
+ ┃ ┃ ┃ ┣ 📜QnaWrapper.tsx
+ ┃ ┃ ┃ ┣ 📜Question.tsx
+ ┃ ┃ ┃ ┣ 📜QuestionAnswerCard.tsx
+ ┃ ┃ ┃ ┣ 📜QuestionAnswerWrapper.tsx
+ ┃ ┃ ┃ ┣ 📜QuestionCard.tsx
+ ┃ ┃ ┃ ┣ 📜QuestionForm.tsx
+ ┃ ┃ ┃ ┗ 📜QuestionList.tsx
+ ┃ ┃ ┣ 📜BidButton.tsx
+ ┃ ┃ ┣ 📜DetailCarousel.tsx
+ ┃ ┃ ┣ 📜DetailContent.tsx
+ ┃ ┃ ┣ 📜DetailInfo.tsx
+ ┃ ┃ ┗ 📜DetailTimeStamp.tsx
+ ┃ ┣ 📂layout
+ ┃ ┃ ┣ 📜Header.tsx
+ ┃ ┃ ┗ 📜Nav.tsx
+ ┃ ┣ 📂login
+ ┃ ┃ ┣ 📂SocialLogin
+ ┃ ┃ ┃ ┗ 📜SocialLogin.tsx
+ ┃ ┃ ┣ 📜AuthFormValue.ts
+ ┃ ┃ ┣ 📜LoginForm.styles.ts
+ ┃ ┃ ┗ 📜LoginForm.tsx
+ ┃ ┣ 📂modalCloseButton
+ ┃ ┃ ┗ 📜CloseButton.tsx
+ ┃ ┣ 📂profile
+ ┃ ┃ ┣ 📂PostList
+ ┃ ┃ ┃ ┣ 📂PostItem
+ ┃ ┃ ┃ ┃ ┣ 📜PostItem.styles.ts
+ ┃ ┃ ┃ ┃ ┗ 📜PostItem.tsx
+ ┃ ┃ ┃ ┗ 📜PostList.tsx
+ ┃ ┃ ┣ 📂ProfileMenu
+ ┃ ┃ ┃ ┗ 📜ProfileMenu.tsx
+ ┃ ┃ ┣ 📂UserProfile
+ ┃ ┃ ┃ ┣ 📂EditProfile
+ ┃ ┃ ┃ ┃ ┗ 📜EditProfile.tsx
+ ┃ ┃ ┃ ┗ 📜UserProfile.tsx
+ ┃ ┃ ┣ 📂WishList
+ ┃ ┃ ┃ ┗ 📜WishList.tsx
+ ┃ ┃ ┗ 📜MyPagePosts.styles.ts
+ ┃ ┣ 📂search
+ ┃ ┃ ┣ 📂SearchItem
+ ┃ ┃ ┃ ┗ 📜SearchItem.tsx
+ ┃ ┃ ┣ 📜Search.styles.ts
+ ┃ ┃ ┗ 📜Search.tsx
+ ┃ ┣ 📂setAuction
+ ┃ ┃ ┣ 📂setAuctionBtn
+ ┃ ┃ ┃ ┣ 📜AddAuctionBtn.tsx
+ ┃ ┃ ┃ ┗ 📜UpdateAuctionBtn.tsx
+ ┃ ┃ ┣ 📜PriceAndDateAlert.tsx
+ ┃ ┃ ┣ 📜SetAuctionAlert.tsx
+ ┃ ┃ ┣ 📜SetAuctionBtn.tsx
+ ┃ ┃ ┣ 📜SetAuctionCategory.tsx
+ ┃ ┃ ┣ 📜SetAuctionContent.tsx
+ ┃ ┃ ┣ 📜SetAuctionDate.tsx
+ ┃ ┃ ┣ 📜SetAuctionImage.tsx
+ ┃ ┃ ┣ 📜SetAuctionPrice.tsx
+ ┃ ┃ ┣ 📜SetAuctionProductStatus.tsx
+ ┃ ┃ ┣ 📜SetAuctionShippingType.tsx
+ ┃ ┃ ┗ 📜SetAuctionTitle.tsx
+ ┃ ┗ 📂ui
+ ┃ ┃ ┣ 📂bidCustomModal
+ ┃ ┃ ┃ ┣ 📂bidForm
+ ┃ ┃ ┃ ┃ ┗ 📜BidForm.tsx
+ ┃ ┃ ┃ ┗ 📜BidCustomModal.tsx
+ ┃ ┃ ┣ 📂customModal
+ ┃ ┃ ┃ ┗ 📜CustomModal.tsx
+ ┃ ┃ ┣ 📂detailWrapper
+ ┃ ┃ ┃ ┗ 📜DetailWrapper.tsx
+ ┃ ┃ ┗ 📜Spacer.tsx
+ ┣ 📂context
+ ┃ ┣ 📜AnswerContext.tsx
+ ┃ ┗ 📜AuctionDetailContext.tsx
+ ┣ 📂hooks
+ ┃ ┣ 📜useAddAuctionMutation.ts
+ ┃ ┣ 📜useAuctionPostData.ts
+ ┃ ┣ 📜useAuctionStatus.ts
+ ┃ ┣ 📜useBidListState.ts
+ ┃ ┣ 📜useCloseButtonState.ts
+ ┃ ┣ 📜useCustomInfinityQuery.ts
+ ┃ ┣ 📜useCustomModal.ts
+ ┃ ┣ 📜useCustomMutation.ts
+ ┃ ┣ 📜useCustomQuery.ts
+ ┃ ┣ 📜useDebounce.ts
+ ┃ ┣ 📜useDeleteAuctionMutation.ts
+ ┃ ┣ 📜useDetailBidState.ts
+ ┃ ┣ 📜useDidMountEffect.ts
+ ┃ ┣ 📜useFetchAuctionChangeStatus.ts
+ ┃ ┣ 📜useFormInput.ts
+ ┃ ┣ 📜useGetAuthInfo.ts
+ ┃ ┣ 📜useIsUpdateState.ts
+ ┃ ┣ 📜useOnClickOutSide.tsx
+ ┃ ┣ 📜useQuestionTanstackQuery.ts
+ ┃ ┣ 📜useSubscribeBidTable.ts
+ ┃ ┣ 📜useUpdateAuctionMutation.ts
+ ┃ ┗ 📜useValidAddAuction.ts
+ ┣ 📂images
+ ┃ ┣ 📜clock.svg
+ ┃ ┣ 📜coin.svg
+ ┃ ┣ 📜end.svg
+ ┃ ┣ 📜flag.svg
+ ┃ ┣ 📜heart.svg
+ ┃ ┣ 📜heart2.svg
+ ┃ ┣ 📜logo.png
+ ┃ ┣ 📜logo2.png
+ ┃ ┣ 📜logo3.png
+ ┃ ┣ 📜placeholder.svg
+ ┃ ┣ 📜search.svg
+ ┃ ┗ 📜thin_heart.svg
+ ┣ 📂layout
+ ┃ ┗ 📜Layout.tsx
+ ┣ 📂pages
+ ┃ ┣ 📜Auth.tsx
+ ┃ ┣ 📜Detail.tsx
+ ┃ ┣ 📜Home.tsx
+ ┃ ┣ 📜Profile.tsx
+ ┃ ┗ 📜SetAuction.tsx
+ ┣ 📂query
+ ┃ ┣ 📜keys.constant.ts
+ ┃ ┣ 📜usePostsQuery.ts
+ ┃ ┗ 📜useUsersQuery.ts
+ ┣ 📂redux
+ ┃ ┣ 📂config
+ ┃ ┃ ┗ 📜configStore.tsx
+ ┃ ┗ 📂modules
+ ┃ ┃ ┣ 📜auctionSingleDataSlice.ts
+ ┃ ┃ ┣ 📜auctionTimestampSlice.ts
+ ┃ ┃ ┣ 📜bidCustomModalSlice.ts
+ ┃ ┃ ┣ 📜bidListSlice.ts
+ ┃ ┃ ┣ 📜customModalSlice.ts
+ ┃ ┃ ┣ 📜profileSlice.ts
+ ┃ ┃ ┣ 📜searchSlice.ts
+ ┃ ┃ ┣ 📜setAuctionSlice.ts
+ ┃ ┃ ┗ 📜templateSlice.ts
+ ┣ 📂share
+ ┃ ┣ 📜AuthLayout.tsx
+ ┃ ┗ 📜Router.tsx
+ ┣ 📂styled
+ ┃ ┗ 📜GlobalStyle.ts
+ ┣ 📂types
+ ┃ ┣ 📜databaseRetrunTypes.ts
+ ┃ ┣ 📜detailTyps.ts
+ ┃ ┣ 📜supabase.ts
+ ┃ ┗ 📜userType.ts
+ ┣ 📜App.tsx
+ ┣ 📜index.tsx
+ ┣ 📜logo.svg
+ ┣ 📜react-app-env.d.ts
+ ┗ 📜supabase.ts
+```
