@@ -1,5 +1,9 @@
 // auction 전체 호출 (조건에 따라 필터링 호출)
-import { Auction_option, Auction_post } from "../types/databaseRetrunTypes";
+import {
+  ActionOrderBy,
+  Auction_option,
+  Auction_post,
+} from "../types/databaseRetrunTypes";
 import connectSupabase from "./connectSupabase";
 
 type QueryType = {
@@ -26,7 +30,7 @@ export async function fetchGetAuctions({
   categories = [],
   limit = 0,
   offset = 0,
-  orderBy = "created_at",
+  orderBy = ActionOrderBy.CREATED_AT,
   order = false,
   user_id = "",
   // pageParam = 1,
@@ -65,7 +69,7 @@ export async function fetchGetInfinityAuctions({
   categories = [],
   limit = 0,
   offset = 0,
-  orderBy = "created_at",
+  orderBy = ActionOrderBy.CREATED_AT,
   order = false,
   user_id = "",
   pageParam,
@@ -80,7 +84,9 @@ export async function fetchGetInfinityAuctions({
     .select(
       "*, category(category_name), user_info(user_email),auction_images(image_id, image_path), auction_like ( like_id, user_id, auction_id, created_at )"
     )
-    .order(`${orderBy}`, { ascending: order })
+    .order(`${orderBy}`, {
+      ascending: orderBy === ActionOrderBy.CREATED_AT ? order : !order,
+    })
     .range(pageParam!, pageParam! + queryLimit);
 
   searchKeyword?.trim() !== "" &&
@@ -89,8 +95,6 @@ export async function fetchGetInfinityAuctions({
       .like("content", `%${searchKeyword}%`);
 
   user_id?.trim() !== "" && query.eq("user_id", user_id);
-
-  console.log(pageParam, pageParam! + queryLimit);
 
   if ((categories?.length as number) > 0) {
     query.in("category_id", categoryIds);
@@ -105,7 +109,7 @@ export async function fetchGetInfinityAuctions({
 export const fetchGetCategories = async () => {
   const { data, error } = await connectSupabase.from("category").select("*");
 
-  if (error) throw new Error(error.message);
+  if (error) throw new Error(error?.message);
   return data;
 };
 

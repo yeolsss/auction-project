@@ -7,25 +7,32 @@ import {
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
-import { fetchAuctionMaxBid } from "../../api/bid";
-import { fetchLikes, updateLike } from "../../api/likes";
-import { calculateAuctionStatusAndTime, transDate } from "../../common/dayjs";
 import clock from "../../images/clock.svg";
 import coin from "../../images/coin.svg";
 import end from "../../images/end.svg";
 import flag from "../../images/flag.svg";
 import placeholder from "../../images/placeholder.svg";
 import heart from "../../images/thin_heart.svg";
-import { supabase } from "../../supabase";
-import { Auction_post } from "../../types/databaseRetrunTypes";
-import { AuctionStatus } from "../../types/detailTyps";
 import LikeButton from "./LikeButton";
+import { Auction_post } from "../../types/databaseRetrunTypes";
+import { fetchAuctionMaxBid } from "../../api/bid";
+import { AuctionStatus } from "../../types/detailTyps";
+import { calculateAuctionStatusAndTime, transDate } from "../../common/dayjs";
+import { supabase } from "../../supabase";
+import { fetchLikes, updateLike } from "../../api/likes";
+import { StSkeletonImageWrapper } from "../../pages/Detail";
+import SkeletonAuctionCard from "./SkeletonAuctionCard";
+
 // 경매 리스트 컴포넌트에 대한 props 타입 정의
 interface AuctionListProps {
-  auctions: Auction_post[] | null;
+  auctions: Auction_post[] | undefined;
+  actionListStatus: "error" | "pending" | "success";
 }
 
-const AuctionList: React.FC<AuctionListProps> = ({ auctions }) => {
+const AuctionList: React.FC<AuctionListProps> = ({
+  auctions,
+  actionListStatus,
+}) => {
   const navigate = useNavigate();
   const [likesCount, setLikesCount] = useState<{ [key: string]: number }>({});
 
@@ -127,9 +134,7 @@ const AuctionList: React.FC<AuctionListProps> = ({ auctions }) => {
     // 좋아요 상태 토글
     const isLiked = !likes[auctionId];
     const previousLikes = { ...likes };
-    const previousLikesCount = { ...likesCount }; // 이전 좋아요 수 상태를 저장
-
-    // setLikes({ ...likes, [auctionId]: isLiked });
+    const previousLikesCount = { ...likesCount };
 
     // 서버에 좋아요 상태 업데이트 요청
     likeMutation.mutate(
@@ -154,15 +159,16 @@ const AuctionList: React.FC<AuctionListProps> = ({ auctions }) => {
       }
     );
   };
-  //이건 쓸모없는듯
-  // useEffect(() => {
-  //   if (likeQuery.data) {
-  //     setLikes(likeQuery.data as { [key: string]: boolean });
-  //   }
-  // }, [likeQuery.data]);
 
   return (
     <StListwrapper>
+      <ul>
+        {actionListStatus === "pending" &&
+          Array.from({ length: 5 }, (v, i) => i).map((_, index) => (
+            <SkeletonAuctionCard key={index} />
+          ))}
+      </ul>
+
       {auctions && auctions.length > 0 ? (
         <ul>
           {auctions.map((auction, index) => {
@@ -211,6 +217,7 @@ const AuctionList: React.FC<AuctionListProps> = ({ auctions }) => {
                     />
                   </span>
                 </StStatusImageWrapper>
+
                 <StInfoContainer>
                   <h6>
                     <img src={clock} alt="Clock" />
@@ -264,12 +271,12 @@ const AuctionList: React.FC<AuctionListProps> = ({ auctions }) => {
 export default AuctionList;
 
 const StListwrapper = styled.div`
-  ul {
+  > ul {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     user-select: none;
-    li {
+    > li {
       font-size: 1.3rem;
       border: 2px solid #023e7d;
       padding: 15px 20px 15px 30px;

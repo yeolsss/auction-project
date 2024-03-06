@@ -5,5 +5,5 @@ const connectSupabase = createClient<Database>(
   process.env.REACT_APP_SUPABASE_URL as string,
   process.env.REACT_APP_SUPABASE_API_KEY as string
 );
-
+console.log(connectSupabase);
 export default connectSupabase;

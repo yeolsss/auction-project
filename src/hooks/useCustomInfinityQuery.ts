@@ -1,15 +1,22 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
+import {
+  ActionOrderBy,
+  Auction_option,
+  Category,
+} from "../types/databaseRetrunTypes";
 import { fetchGetInfinityAuctions } from "../api/auction";
-import { Auction_option, Category } from "../types/databaseRetrunTypes";
 
 // 선택된 카테고리를 인자로 받아 무한 스크롤 쿼리를 수행하는 사용자 정의 훅
-const useCustomInfinityQuery = (selectedCategories: Category[]) => {
+const useCustomInfinityQuery = (
+  selectedCategories: Category[],
+  orderBy: ActionOrderBy.CREATED_AT | ActionOrderBy.TITLE
+) => {
   const queryOption: Auction_option = {
     searchKeyword: "",
     categories: selectedCategories,
     limit: 5, // 한 페이지당 아이템 수
     offset: 0, // 시작 위치
-    orderBy: "created_at", // 정렬 기준
+    orderBy, // 정렬 기준
     order: false, // 오름차순 또는 내림차순
   };
 
@@ -24,7 +31,7 @@ const useCustomInfinityQuery = (selectedCategories: Category[]) => {
     refetch, // refetch 위한 함수
   } = useInfiniteQuery({
     queryKey: ["projects", selectedCategories], // 쿼리 키
-    queryFn: ({ pageParam }) =>
+    queryFn: ({ pageParam }: { pageParam: number }) =>
       fetchGetInfinityAuctions({ ...queryOption, pageParam }), // 쿼리 함수
     initialPageParam: 0, // 초기 페이지 파라미터
     getNextPageParam: (lastPage, allPages) => {

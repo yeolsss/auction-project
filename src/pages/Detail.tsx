@@ -117,7 +117,7 @@ const StDetailImgWrapper = styled.div`
   }
 `;
 
-const StSkeletonImageWrapper = styled(Skeleton.Image)`
+export const StSkeletonImageWrapper = styled(Skeleton.Image)`
   width: 100% !important;
   height: 100%;
   > svg {
