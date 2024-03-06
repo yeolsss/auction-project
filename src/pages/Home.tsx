@@ -29,16 +29,6 @@ const Home = () => {
   } = useCustomInfinityQuery(selectedCategories, sortType);
 
   useEffect(() => {
-    if (status === "pending") {
-      console.log("pending");
-    }
-
-    if (status === "error") {
-      console.log(error?.message);
-    }
-  }, [status]);
-
-  useEffect(() => {
     // 선택된 카테고리가 바뀔 때마다 쿼리를 리셋
     client.invalidateQueries({ queryKey: ["projects", selectedCategories] });
   }, [selectedCategories]);
