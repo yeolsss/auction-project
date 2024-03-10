@@ -1,5 +1,5 @@
 import { supabase } from "../supabase";
-import { User_info } from "../types/databaseRetrunTypes";
+import { User_info } from "../types/databaseReturnTypes";
 
 interface updateProps {
   user_id: string;

@@ -5,7 +5,7 @@ import {
   Auction_post,
   Insert_auction_post,
   Update_auction_post,
-} from "../types/databaseRetrunTypes";
+} from "../types/databaseReturnTypes";
 import connectSupabase from "./connectSupabase";
 
 // 경매품 등록

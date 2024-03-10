@@ -1,4 +1,4 @@
-import { Auction_images } from "../../types/databaseRetrunTypes";
+import { Auction_images } from "../../types/databaseReturnTypes";
 import { Carousel } from "antd";
 import { styled } from "styled-components";
 

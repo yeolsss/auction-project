@@ -1,6 +1,6 @@
 import { fetchGetQuestions } from "../../../api/qna";
 import { useCustomQuery } from "../../../hooks/useCustomQuery";
-import { Auction_question } from "../../../types/databaseRetrunTypes";
+import { Auction_question } from "../../../types/databaseReturnTypes";
 import { styled } from "styled-components";
 import { Skeleton } from "antd";
 import QuestionCard from "./QuestionCard";

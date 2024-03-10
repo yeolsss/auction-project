@@ -30,7 +30,7 @@ import {
   setImageUrlList,
   setIsAlert,
 } from "../redux/modules/setAuctionSlice";
-import { Auction_post, Bids } from "../types/databaseRetrunTypes";
+import { Auction_post, Bids } from "../types/databaseReturnTypes";
 
 function SetAuction() {
   const { auctionId } = useParams();

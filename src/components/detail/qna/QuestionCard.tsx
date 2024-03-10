@@ -7,7 +7,7 @@ import useFormInput from "../../../hooks/useFormInput";
 import useGetAuthInfo from "../../../hooks/useGetAuthInfo";
 import useIsUpdateState from "../../../hooks/useIsUpdateState";
 import useQuestionTanstackQuery from "../../../hooks/useQuestionTanstackQuery";
-import { Auction_question } from "../../../types/databaseRetrunTypes";
+import { Auction_question } from "../../../types/databaseReturnTypes";
 import ProfileAvatar from "../../common/Avatar";
 import QnaButtonGroup from "./QnaButtonGroup";
 import QnaTextArea from "./QnaTextArea";

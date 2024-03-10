@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Auction_post } from "../../types/databaseRetrunTypes";
+import { Auction_post } from "../../types/databaseReturnTypes";
 import { RootStateType } from "../config/configStore";
 
 const initialState = {

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Bids } from "../../types/databaseRetrunTypes";
+import { Bids } from "../../types/databaseReturnTypes";
 import { RootStateType } from "../config/configStore";
 
 type BidListSlice = {

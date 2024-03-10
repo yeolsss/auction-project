@@ -1,5 +1,5 @@
 import connectSupabase from "./connectSupabase";
-import { Auction_answer, Auction_question } from "../types/databaseRetrunTypes";
+import { Auction_answer, Auction_question } from "../types/databaseReturnTypes";
 
 export const fetchPostQuestion = async (
   questionData: Pick<Auction_question, "user_id" | "auction_id" | "question">

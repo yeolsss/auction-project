@@ -12,7 +12,7 @@ import WishList from "../components/profile/WishList/WishList";
 import { useCustomQuery } from "../hooks/useCustomQuery";
 import useGetAuthInfo from "../hooks/useGetAuthInfo";
 import { QUERY_KEYS } from "../query/keys.constant";
-import { User_info } from "../types/databaseRetrunTypes";
+import { User_info } from "../types/databaseReturnTypes";
 
 const Profile = () => {
   const [activeTitle, setActiveTitle] = useState("내 게시물");

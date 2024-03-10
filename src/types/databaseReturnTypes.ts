@@ -21,6 +21,7 @@ export interface Category {
   category_id?: string /* primary key */;
   created_at?: string;
   category_name: string;
+  selected?: boolean;
 }
 
 export interface Auction_post {
@@ -102,12 +103,17 @@ export interface Auction_like {
   auction_post?: Auction_post;
 }
 
+export enum ActionOrderBy {
+  CREATED_AT = "created_at",
+  TITLE = "title",
+}
+
 export interface Auction_option {
   searchKeyword?: string;
   categories?: Category[];
   limit?: number;
   offset?: number;
-  orderBy?: string;
+  orderBy?: ActionOrderBy.CREATED_AT | ActionOrderBy.TITLE;
   order?: boolean;
   user_id?: string;
   pageParam?: number;

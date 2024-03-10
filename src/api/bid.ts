@@ -1,4 +1,4 @@
-import { Bids } from "../types/databaseRetrunTypes";
+import { Bids } from "../types/databaseReturnTypes";
 import connectSupabase from "./connectSupabase";
 
 export const fetchAuctionMaxBid = async (inputAuctionId: string) => {

@@ -1,4 +1,4 @@
-import { Auction_post } from "../types/databaseRetrunTypes";
+import { Auction_post } from "../types/databaseReturnTypes";
 import { calculateAuctionStatusAndTime } from "../common/dayjs";
 import { useEffect, useRef } from "react";
 import { AuctionStatus } from "../types/detailTyps";

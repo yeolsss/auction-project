@@ -1,4 +1,4 @@
-import { Bids } from "../../../types/databaseRetrunTypes";
+import { Bids } from "../../../types/databaseReturnTypes";
 import { styled } from "styled-components";
 import { formatNumberWithCommas } from "../../../common/formatUtil";
 

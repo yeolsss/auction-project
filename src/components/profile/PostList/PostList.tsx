@@ -7,7 +7,7 @@ import { QUERY_KEYS } from "../../../query/keys.constant";
 import {
   Auction_option,
   Auction_post,
-} from "../../../types/databaseRetrunTypes";
+} from "../../../types/databaseReturnTypes";
 import PostItem from "./PostItem/PostItem";
 
 interface PostListProps {

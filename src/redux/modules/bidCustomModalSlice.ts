@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootStateType } from "../config/configStore";
-import { MaxBids } from "../../types/databaseRetrunTypes";
+import { MaxBids } from "../../types/databaseReturnTypes";
 
 type BidCustomModalActionPayload = {
   maxBid?: MaxBids | undefined;
