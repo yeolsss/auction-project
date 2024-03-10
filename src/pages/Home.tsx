@@ -1,18 +1,17 @@
 import { useQueryClient } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { styled } from "styled-components";
 import Category from "../components/category/Category";
 import AuctionList from "../components/Home/AuctionList";
+import Sort from "../components/sort/Sort";
 import useCategory from "../features/category/hooks/useCategory";
+import useSort from "../features/sort/hooks/useSort";
 import useCustomInfinityQuery from "../hooks/useCustomInfinityQuery";
 import { ActionOrderBy } from "../types/databaseReturnTypes";
 const Home = () => {
   const { categories, selectCategories, handleOnClickCategory } = useCategory();
-
-  const [sortType, setSortType] = useState<
-    ActionOrderBy.CREATED_AT | ActionOrderBy.TITLE
-  >(ActionOrderBy.CREATED_AT);
+  const { sortType, handleOnClickSort } = useSort();
 
   const client = useQueryClient();
 
@@ -67,26 +66,25 @@ const Home = () => {
             </Category.CategoryItem>
           ))}
         </Category>
+
         {/* 경매 목록 컴포넌트 */}
-        <StSortButton>
-          <button
-            onClick={() => setSortType(ActionOrderBy.TITLE)}
-            style={{
-              color: sortType === ActionOrderBy.TITLE ? "#023e7d" : "inherit",
-            }}
+        <Sort>
+          <Sort.SortButton
+            selectedSort={ActionOrderBy.TITLE === sortType}
+            handler={() => handleOnClickSort(ActionOrderBy.TITLE)}
           >
             이름순
-          </button>
-          <button
-            onClick={() => setSortType(ActionOrderBy.CREATED_AT)}
-            style={{
-              color:
-                sortType === ActionOrderBy.CREATED_AT ? "#023e7d" : "inherit",
-            }}
+          </Sort.SortButton>
+
+          <Sort.SortButton
+            selectedSort={ActionOrderBy.CREATED_AT === sortType}
+            handler={() => handleOnClickSort(ActionOrderBy.CREATED_AT)}
           >
             최신순
-          </button>
-        </StSortButton>
+          </Sort.SortButton>
+        </Sort>
+
+        {/* auction List Component */}
         <AuctionList auctions={auctionData} actionListStatus={status} />
         <div ref={ref} style={{ height: "20px" }}></div>
       </div>
