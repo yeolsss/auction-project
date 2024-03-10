@@ -8,7 +8,7 @@ import { useCustomModal } from "../../../../hooks/useCustomModal";
 import { QUERY_KEYS } from "../../../../query/keys.constant";
 import { useUserUpdateMutation } from "../../../../query/useUsersQuery";
 import { supabase } from "../../../../supabase";
-import { User_info } from "../../../../types/databaseRetrunTypes";
+import { User_info } from "../../../../types/databaseReturnTypes";
 import ProfileAvatar from "../../../common/Avatar";
 import Button from "../../../common/Button";
 

@@ -7,7 +7,7 @@ import { useCustomModal } from "../../hooks/useCustomModal";
 import { QUERY_KEYS } from "../../query/keys.constant";
 import { useAppDispatch } from "../../redux/config/configStore";
 import { supabase } from "../../supabase";
-import { User_info } from "../../types/databaseRetrunTypes";
+import { User_info } from "../../types/databaseReturnTypes";
 import {
   FormWrapper,
   StButton,

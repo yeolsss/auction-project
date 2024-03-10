@@ -13,7 +13,7 @@ import useOnClickOutSide from "../../hooks/useOnClickOutSide";
 import { QUERY_KEYS } from "../../query/keys.constant";
 import { useAppDispatch, useAppSelector } from "../../redux/config/configStore";
 import { toggleViewSearchModal } from "../../redux/modules/searchSlice";
-import { Auction_post, Category } from "../../types/databaseRetrunTypes";
+import { Auction_post, Category } from "../../types/databaseReturnTypes";
 import PostItem from "../profile/PostList/PostItem/PostItem";
 import { StModalBox, StModalContainer } from "./Search.styles";
 

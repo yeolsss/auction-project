@@ -3,7 +3,7 @@ import {
   ActionOrderBy,
   Auction_option,
   Category,
-} from "../types/databaseRetrunTypes";
+} from "../types/databaseReturnTypes";
 import { fetchGetInfinityAuctions } from "../api/auction";
 
 // 선택된 카테고리를 인자로 받아 무한 스크롤 쿼리를 수행하는 사용자 정의 훅

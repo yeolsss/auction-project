@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import moment from "moment";
-import { Category } from "../../types/databaseRetrunTypes";
+import { Category } from "../../types/databaseReturnTypes";
 
 interface CounterState {
   isAlert?: boolean;

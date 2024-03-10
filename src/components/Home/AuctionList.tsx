@@ -5,23 +5,15 @@ import {
   useQueryClient,
 } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
-import clock from "../../images/clock.svg";
-import coin from "../../images/coin.svg";
-import end from "../../images/end.svg";
-import flag from "../../images/flag.svg";
-import placeholder from "../../images/placeholder.svg";
-import heart from "../../images/thin_heart.svg";
-import LikeButton from "./LikeButton";
-import { Auction_post } from "../../types/databaseRetrunTypes";
+import { Auction_post } from "../../types/databaseReturnTypes";
 import { fetchAuctionMaxBid } from "../../api/bid";
 import { AuctionStatus } from "../../types/detailTyps";
-import { calculateAuctionStatusAndTime, transDate } from "../../common/dayjs";
+import { calculateAuctionStatusAndTime } from "../../common/dayjs";
 import { supabase } from "../../supabase";
 import { fetchLikes, updateLike } from "../../api/likes";
-import { StSkeletonImageWrapper } from "../../pages/Detail";
 import SkeletonAuctionCard from "./SkeletonAuctionCard";
+import AuctionCard from "./auctionCard/AuctionCard";
 
 // 경매 리스트 컴포넌트에 대한 props 타입 정의
 interface AuctionListProps {
@@ -33,7 +25,6 @@ const AuctionList: React.FC<AuctionListProps> = ({
   auctions,
   actionListStatus,
 }) => {
-  const navigate = useNavigate();
   const [likesCount, setLikesCount] = useState<{ [key: string]: number }>({});
 
   // 각 경매에 대한 최대 입찰가를 가져오기 위한 쿼리
@@ -90,13 +81,6 @@ const AuctionList: React.FC<AuctionListProps> = ({
     queryFn: () => fetchLikes(userId!),
     enabled: !!userId,
   });
-
-  // // 좋아요 데이터가 로드되었을 때 상태를 업데이트하는 useEffect
-  // useEffect(() => {
-  //   if (likeQuery.isSuccess && likeQuery.data) {
-  //     setLikes(likeQuery.data as { [key: string]: boolean });
-  //   }
-  // }, [likeQuery.isSuccess, likeQuery.data]);
 
   // 좋아요 업데이트를 위한 뮤테이션 정의
   const queryClient = useQueryClient();
@@ -193,64 +177,13 @@ const AuctionList: React.FC<AuctionListProps> = ({
                 auctionStatusText = "경매 상태 알수없음";
             }
             return (
-              <li
-                key={auction.auction_id}
-                onClick={() => navigate(`/detail/${auction.auction_id}`)}
-              >
-                <StStatusImageWrapper>
-                  <h3>{auctionStatusText}</h3>
-                  <span>
-                    <img
-                      src={
-                        auction.auction_images &&
-                        auction.auction_images.length > 0
-                          ? auction.auction_images[0].image_path
-                          : placeholder
-                      }
-                      alt="Auction"
-                    />
-                    <LikeButton
-                      isLiked={likes[auction.auction_id]}
-                      onLike={(e) =>
-                        LikeButtonClickHandler(e, auction.auction_id)
-                      }
-                    />
-                  </span>
-                </StStatusImageWrapper>
-
-                <StInfoContainer>
-                  <h6>
-                    <img src={clock} alt="Clock" />
-                    {transDate(auction.created_at)}
-                  </h6>
-                  <h1>{auction.title}</h1>
-                  <p>{auction.content}</p>
-                  <div>
-                    <h3>
-                      <img src={flag} />
-                      &nbsp;
-                      {transDate(auction.auction_start_date)} 시작
-                    </h3>
-                    <h3>
-                      <img src={end} /> &nbsp;
-                      {transDate(auction.auction_end_date)} 마감
-                    </h3>
-                    <h3>
-                      <img src={coin} /> &nbsp;시작 가격 ₩
-                      {auction.lower_limit.toLocaleString()}
-                    </h3>
-                    <h3>
-                      <img src={heart} />
-                      &nbsp; 좋아요 {auction?.auction_like.length}
-                    </h3>
-                  </div>
-
-                  <StNowPrice>현재 입찰 가격 ₩{formattedBidPrice}</StNowPrice>
-                  {auction.category && (
-                    <h5>{auction.category.category_name}</h5>
-                  )}
-                </StInfoContainer>
-              </li>
+              <AuctionCard
+                auction={auction}
+                formattedBidPrice={formattedBidPrice}
+                auctionStatusText={auctionStatusText}
+                LikeButtonClickHandler={LikeButtonClickHandler}
+                likes={likes}
+              />
             );
           })}
         </ul>
@@ -348,103 +281,4 @@ const StNoItemMessage = styled.h4`
   text-align: center;
   font-size: 1.5rem;
   line-height: 2.3rem;
-`;
-
-const StInfoContainer = styled.div`
-  width: calc(100% - 180px);
-
-  div {
-    display: flex;
-    margin-top: 20px;
-    gap: 20px;
-    align-items: center;
-    @media (max-width: 935px) {
-      flex-wrap: wrap;
-    }
-
-    img {
-      height: 25px;
-      vertical-align: middle;
-    }
-    @media (max-width: 430px) {
-      gap: 0;
-    }
-  }
-
-  @media (max-width: 430px) {
-    margin-top: 10px;
-    width: 100%;
-  }
-
-  h3 {
-    @media (max-width: 430px) {
-      width: 100%;
-
-      line-height: 3rem;
-    }
-  }
-`;
-
-const StStatusImageWrapper = styled.div`
-  @media (max-width: 430px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  h3 {
-    text-align: center;
-    color: #023e7d;
-    font-weight: 600;
-    margin-bottom: 5px;
-  }
-  span {
-    overflow: hidden;
-    width: 150px;
-    display: block;
-    height: 150px;
-
-    position: relative;
-    border: 2px solid #eee;
-    border-radius: 10px;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: scale-down;
-      vertical-align: middle;
-      margin: auto;
-    }
-  }
-
-  @media (max-width: 430px) {
-    width: 100%;
-  }
-`;
-
-const StStatus = styled.h3`
-  text-align: right;
-  color: #023e7d;
-  font-weight: 600;
-`;
-
-const StNowPrice = styled.h2`
-  font-size: 1.6rem;
-  text-align: right;
-
-  font-weight: bold;
-  color: #023e7d;
-  justify-content: flex-end;
-
-  display: flex;
-  p {
-    background-color: yellow;
-
-    &:first-of-type {
-      background-color: green;
-    }
-  }
-  @media (max-width: 590px) {
-    margin-top: 20px;
-  }
 `;

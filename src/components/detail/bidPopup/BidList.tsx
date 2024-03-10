@@ -3,7 +3,7 @@ import React from "react";
 import { styled } from "styled-components";
 import { fetchGetAuctionBidList } from "../../../api/bid";
 import { useCustomQuery } from "../../../hooks/useCustomQuery";
-import { Bids } from "../../../types/databaseRetrunTypes";
+import { Bids } from "../../../types/databaseReturnTypes";
 import { AuctionStatus } from "../../../types/detailTyps";
 import { useSelector } from "react-redux";
 import { selectorAuctionSingleData } from "../../../redux/modules/auctionSingleDataSlice";

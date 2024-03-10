@@ -1,7 +1,7 @@
 import { useAppDispatch } from "../redux/config/configStore";
 import { fetchAuctionMaxBid } from "../api/bid";
 import { useCustomQuery } from "./useCustomQuery";
-import { MaxBids } from "../types/databaseRetrunTypes";
+import { MaxBids } from "../types/databaseReturnTypes";
 import { setBidData } from "../redux/modules/bidCustomModalSlice";
 import { useEffect } from "react";
 

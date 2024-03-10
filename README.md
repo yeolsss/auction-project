@@ -314,7 +314,7 @@
  ┣ 📂styled
  ┃ ┗ 📜GlobalStyle.ts
  ┣ 📂types
- ┃ ┣ 📜databaseRetrunTypes.ts
+ ┃ ┣ 📜databaseReturnTypes.ts
  ┃ ┣ 📜detailTyps.ts
  ┃ ┣ 📜supabase.ts
  ┃ ┗ 📜userType.ts

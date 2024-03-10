@@ -1,6 +1,6 @@
 import { fetchGetAuctionById } from "../api/auction";
 import { useCustomQuery } from "./useCustomQuery";
-import { Auction_post, MaxBids } from "../types/databaseRetrunTypes";
+import { Auction_post, MaxBids } from "../types/databaseReturnTypes";
 import { useEffect } from "react";
 import { useAppDispatch } from "../redux/config/configStore";
 import { fetchAuctionMaxBid } from "../api/bid";

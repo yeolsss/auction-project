@@ -12,7 +12,7 @@ import { useSocialUserAddMutation } from "../../query/useUsersQuery";
 import { useAppDispatch, useAppSelector } from "../../redux/config/configStore";
 import { toggleViewSearchModal } from "../../redux/modules/searchSlice";
 import { supabase } from "../../supabase";
-import { User_info } from "../../types/databaseRetrunTypes";
+import { User_info } from "../../types/databaseReturnTypes";
 import { Auth } from "../../types/userType";
 import DefaultButton from "../common/Button";
 import Search from "../search/Search";

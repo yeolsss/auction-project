@@ -7,7 +7,7 @@ import { useCustomMutation } from "../../../hooks/useCustomMutation";
 import useFormInput from "../../../hooks/useFormInput";
 import useGetAuthInfo from "../../../hooks/useGetAuthInfo";
 import useIsUpdateState from "../../../hooks/useIsUpdateState";
-import { Auction_answer } from "../../../types/databaseRetrunTypes";
+import { Auction_answer } from "../../../types/databaseReturnTypes";
 import ProfileAvatar from "../../common/Avatar";
 import QnaButtonGroup from "./QnaButtonGroup";
 import QnaTextArea from "./QnaTextArea";

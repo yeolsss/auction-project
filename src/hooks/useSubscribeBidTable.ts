@@ -1,4 +1,4 @@
-import { Bids } from "../types/databaseRetrunTypes";
+import { Bids } from "../types/databaseReturnTypes";
 import connectSupabase from "../api/connectSupabase";
 import { useQueryClient } from "@tanstack/react-query";
 import { useEffect } from "react";

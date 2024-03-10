@@ -7,7 +7,7 @@ import { useCustomModal } from "../../../hooks/useCustomModal";
 import { useCustomMutation } from "../../../hooks/useCustomMutation";
 import useFormInput from "../../../hooks/useFormInput";
 import useGetAuthInfo from "../../../hooks/useGetAuthInfo";
-import { Auction_answer } from "../../../types/databaseRetrunTypes";
+import { Auction_answer } from "../../../types/databaseReturnTypes";
 import QnaTextArea from "./QnaTextArea";
 
 interface Props {

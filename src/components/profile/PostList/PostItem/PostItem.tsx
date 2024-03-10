@@ -10,7 +10,7 @@ import { toggleViewSearchModal } from "../../../../redux/modules/searchSlice";
 import {
   Auction_images,
   Auction_post,
-} from "../../../../types/databaseRetrunTypes";
+} from "../../../../types/databaseReturnTypes";
 import Button from "../../../common/Button";
 import {
   StButtonSection,

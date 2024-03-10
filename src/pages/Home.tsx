@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { styled } from "styled-components";
-import { ActionOrderBy, Category } from "../types/databaseRetrunTypes";
-import useCustomInfinityQuery from "../hooks/useCustomInfinityQuery";
+import Category from "../components/category/Category";
 import AuctionList from "../components/Home/AuctionList";
-import CategorySelector from "../components/Home/CategorySelector";
-
+import useCategory from "../features/category/hooks/useCategory";
+import useCustomInfinityQuery from "../hooks/useCustomInfinityQuery";
+import { ActionOrderBy } from "../types/databaseReturnTypes";
 const Home = () => {
-  // 선택된 카테고리와 정렬 타입을 관리하는 State
-  const [selectedCategories, setSelectedCategories] = useState<Category[]>([]);
+  const { categories, selectCategories, handleOnClickCategory } = useCategory();
+
   const [sortType, setSortType] = useState<
     ActionOrderBy.CREATED_AT | ActionOrderBy.TITLE
   >(ActionOrderBy.CREATED_AT);
@@ -26,12 +26,12 @@ const Home = () => {
     isFetchingNextPage,
     status,
     refetch,
-  } = useCustomInfinityQuery(selectedCategories, sortType);
+  } = useCustomInfinityQuery(selectCategories, sortType);
 
   useEffect(() => {
     // 선택된 카테고리가 바뀔 때마다 쿼리를 리셋
-    client.invalidateQueries({ queryKey: ["projects", selectedCategories] });
-  }, [selectedCategories]);
+    client.invalidateQueries({ queryKey: ["projects", selectCategories] });
+  }, [selectCategories]);
 
   useEffect(() => {
     // sortType 값이 변경될 때마다 쿼리를 무효화
@@ -49,27 +49,24 @@ const Home = () => {
     },
   });
 
-  // 카테고리 선택 핸들러
-  const categorySelectHandler = (category: Category) => {
-    setSelectedCategories((prev) => {
-      // 이미 선택된 카테고리를 다시 클릭하면 제거, 아니면 추가
-      // client.invalidateQueries();
-      if (prev.find((c) => c.category_id === category.category_id)) {
-        return prev.filter((c) => c.category_id !== category.category_id);
-      } else {
-        return [...prev, category];
-      }
-    });
-  };
-
   return (
     <>
       <div>
         {/* 카테고리 선택 컴포넌트 */}
-        <CategorySelector
-          onCategorySelect={categorySelectHandler}
-          selectedCategories={selectedCategories}
-        />
+        <Category>
+          {categories.map((category) => (
+            <Category.CategoryItem
+              key={category.category_id!}
+              selected={category.selected!}
+            >
+              <Category.CategoryItem.Button
+                handler={() => handleOnClickCategory(category.category_id!)}
+              >
+                {category.category_name}
+              </Category.CategoryItem.Button>
+            </Category.CategoryItem>
+          ))}
+        </Category>
         {/* 경매 목록 컴포넌트 */}
         <StSortButton>
           <button

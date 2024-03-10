@@ -21,6 +21,7 @@ export interface Category {
   category_id?: string /* primary key */;
   created_at?: string;
   category_name: string;
+  selected?: boolean;
 }
 
 export interface Auction_post {

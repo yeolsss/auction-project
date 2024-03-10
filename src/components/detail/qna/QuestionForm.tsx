@@ -6,7 +6,7 @@ import { useCustomModal } from "../../../hooks/useCustomModal";
 import { useCustomMutation } from "../../../hooks/useCustomMutation";
 import useFormInput from "../../../hooks/useFormInput";
 import useGetAuthInfo from "../../../hooks/useGetAuthInfo";
-import { Auction_question } from "../../../types/databaseRetrunTypes";
+import { Auction_question } from "../../../types/databaseReturnTypes";
 import QnaTextArea from "./QnaTextArea";
 import { selectorAuctionSingleData } from "../../../redux/modules/auctionSingleDataSlice";
 import { useSelector } from "react-redux";

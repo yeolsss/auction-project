@@ -3,7 +3,8 @@ import {
   ActionOrderBy,
   Auction_option,
   Auction_post,
-} from "../types/databaseRetrunTypes";
+  Category,
+} from "../types/databaseReturnTypes";
 import connectSupabase from "./connectSupabase";
 
 type QueryType = {
@@ -107,10 +108,19 @@ export async function fetchGetInfinityAuctions({
 }
 
 export const fetchGetCategories = async () => {
-  const { data, error } = await connectSupabase.from("category").select("*");
+  const { data, error } = await connectSupabase
+    .from("category")
+    .select("*")
+    .returns<Category[]>();
 
   if (error) throw new Error(error?.message);
-  return data;
+
+  const returnData = data.map((category) => {
+    category.selected = false;
+    return category;
+  });
+
+  return returnData;
 };
 
 export const fetchGetCategoryById = async (category_id: string) => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import { fetchGetCategories } from "../../api/auction";
-import { Category } from "../../types/databaseRetrunTypes";
+import { Category } from "../../types/databaseReturnTypes";
 // CategorySelector 컴포넌트의 props 타입 정의
 interface CategorySelectorProps {
   // 카테고리 선택 시 실행될 함수
@@ -27,26 +27,24 @@ const CategorySelector: React.FC<CategorySelectorProps> = ({
   }, []);
 
   return (
-    <StCategoryWrapper>
-      <StCategoryContainer>
-        {categories.map((category) => (
-          // 각 카테고리에 대한 버튼을 렌더링하고 버튼 클릭 시 onCategorySelect 함수 실행
-          <button
-            key={category.category_id}
-            onClick={() => onCategorySelect(category)}
-            style={{
-              backgroundColor: selectedCategories.some(
-                (c) => c.category_id === category.category_id
-              )
-                ? "#fffacd"
-                : "transparent",
-            }}
-          >
-            {category.category_name}
-          </button>
-        ))}
-      </StCategoryContainer>
-    </StCategoryWrapper>
+    <StCategoryContainer>
+      {categories.map((category) => (
+        // 각 카테고리에 대한 버튼을 렌더링하고 버튼 클릭 시 onCategorySelect 함수 실행
+        <button
+          key={category.category_id}
+          onClick={() => onCategorySelect(category)}
+          style={{
+            backgroundColor: selectedCategories.some(
+              (c) => c.category_id === category.category_id
+            )
+              ? "#fffacd"
+              : "transparent",
+          }}
+        >
+          {category.category_name}
+        </button>
+      ))}
+    </StCategoryContainer>
   );
 };
 
@@ -71,5 +69,3 @@ const StCategoryContainer = styled.div`
     }
   }
 `;
-
-const StCategoryWrapper = styled.div``;

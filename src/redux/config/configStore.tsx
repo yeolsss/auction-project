@@ -1,5 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import category from "../../features/category/slice/categorySlice";
+import auctionSingleData from "../modules/auctionSingleDataSlice";
 import auctionTimestamp from "../modules/auctionTimestampSlice";
 import bidCustomModal from "../modules/bidCustomModalSlice";
 import bidList from "../modules/bidListSlice";
@@ -7,8 +9,6 @@ import customModal from "../modules/customModalSlice";
 import profile from "../modules/profileSlice";
 import search from "../modules/searchSlice";
 import setAuction from "../modules/setAuctionSlice";
-import auctionSingleData from "../modules/auctionSingleDataSlice";
-
 const store = configureStore({
   reducer: {
     setAuction,
@@ -19,6 +19,8 @@ const store = configureStore({
     search,
     bidList,
     auctionSingleData,
+    // 0310 yeol add
+    category,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

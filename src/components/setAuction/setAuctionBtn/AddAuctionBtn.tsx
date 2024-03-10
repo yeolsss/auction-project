@@ -3,9 +3,12 @@ import { FaPlus } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 import { useAddAuctionMutation } from "../../../hooks/useAddAuctionMutation";
-import { useAppDispatch, useAppSelector } from "../../../redux/config/configStore";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../../redux/config/configStore";
 import { setIsAlert } from "../../../redux/modules/setAuctionSlice";
-import { Insert_auction_post } from "../../../types/databaseRetrunTypes";
+import { Insert_auction_post } from "../../../types/databaseReturnTypes";
 
 function AddAuctionBtn({ isParams }: { isParams: string }) {
   const {
@@ -24,13 +27,17 @@ function AddAuctionBtn({ isParams }: { isParams: string }) {
   } = useAppSelector((state) => state.setAuction);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const accessTokenJson: string | null = localStorage.getItem("sb-fzdzmgqtadcebrhlgljh-auth-token")
-  const accessToken = accessTokenJson && JSON.parse(accessTokenJson)
+  const accessTokenJson: string | null = localStorage.getItem(
+    "sb-fzdzmgqtadcebrhlgljh-auth-token"
+  );
+  const accessToken = accessTokenJson && JSON.parse(accessTokenJson);
 
-  const { mutate } = useAddAuctionMutation()
+  const { mutate } = useAddAuctionMutation();
   const onclickAddAuctionHandler = () => {
     if (imgFileList.length === 0) {
-      dispatch(setIsAlert({ isAlert: true, ErrorMsg: "이미지를 등록해 주세요" }));
+      dispatch(
+        setIsAlert({ isAlert: true, ErrorMsg: "이미지를 등록해 주세요" })
+      );
       return false;
     } else if (auctionTitle === "") {
       dispatch(
@@ -92,7 +99,6 @@ function AddAuctionBtn({ isParams }: { isParams: string }) {
       );
       return false;
     } else {
-
       const newAuctionData: Insert_auction_post = {
         title: auctionTitle,
         auction_start_date: `${startDate} ${startTime}`,
@@ -102,30 +108,36 @@ function AddAuctionBtn({ isParams }: { isParams: string }) {
         upper_limit: auctionUpperPrice,
         lower_limit: auctionLowerPrice,
         content: auctionContent,
-        auction_status: dayjs().format("YYYY-MM-DD HH:mm") < `${startDate} ${startTime}` ? "0" : '1',
+        auction_status:
+          dayjs().format("YYYY-MM-DD HH:mm") < `${startDate} ${startTime}`
+            ? "0"
+            : "1",
         user_id: accessToken.user.id,
-        category_id: categoryList
-      }
+        category_id: categoryList,
+      };
       const addAuctionData: {
         newAuctionData: Insert_auction_post;
         imgFileList: File[];
-      } = { newAuctionData, imgFileList }
+      } = { newAuctionData, imgFileList };
 
-      mutate(addAuctionData)
+      mutate(addAuctionData);
     }
-  }
+  };
   return (
     <StButtonWrapper>
-      <StButton $isParams={isParams} onClick={() => {
-        onclickAddAuctionHandler()
-      }}>
+      <StButton
+        $isParams={isParams}
+        onClick={() => {
+          onclickAddAuctionHandler();
+        }}
+      >
         <StPlus className="plus" />
       </StButton>
     </StButtonWrapper>
-  )
+  );
 }
 
-export default AddAuctionBtn
+export default AddAuctionBtn;
 
 const StButtonWrapper = styled.div`
   position: fixed;
@@ -137,26 +149,26 @@ const StButtonWrapper = styled.div`
   width: 1200px;
   margin: 0;
   height: 100vh;
-`
+`;
 
 const StButton = styled.button<{ $isParams?: string }>`
   position: absolute;
   right: 0%;
   bottom: 5%;
-  background-color: #023E7D;
+  background-color: #023e7d;
   visibility: visible;
   width: 6em;
   height: 6em;
   border: 0;
   border-radius: 1em;
   cursor: pointer;
-  box-shadow: 0 0 0.5em 0 #023E7D;
+  box-shadow: 0 0 0.5em 0 #023e7d;
   transition: 0.1s;
-  &:hover{
-    background-color: #FFFACD;
-    &::before{
+  &:hover {
+    background-color: #fffacd;
+    &::before {
       position: absolute;
-      color: #023E7D;
+      color: #023e7d;
       top: -2em;
       left: 50%;
       width: 5em;
@@ -165,11 +177,11 @@ const StButton = styled.button<{ $isParams?: string }>`
       content: "${({ $isParams }) => $isParams}";
     }
   }
-  &:hover > .plus{
-    color: #023E7D;
+  &:hover > .plus {
+    color: #023e7d;
   }
-`
+`;
 const StPlus = styled(FaPlus)`
   font-size: 3em;
-  color: #FFFACD;
-`
+  color: #fffacd;
+`;

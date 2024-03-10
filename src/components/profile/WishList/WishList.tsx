@@ -5,7 +5,7 @@ import { styled } from "styled-components";
 import { fetchGetAuctionsByIds } from "../../../api/auction";
 import { deleteLikesById, fetchLikesByUserId } from "../../../api/likes";
 import { QUERY_KEYS } from "../../../query/keys.constant";
-import { Auction_post } from "../../../types/databaseRetrunTypes";
+import { Auction_post } from "../../../types/databaseReturnTypes";
 import PostItem from "../PostList/PostItem/PostItem";
 
 interface PostListProps {

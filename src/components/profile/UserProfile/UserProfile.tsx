@@ -2,7 +2,7 @@ import { Skeleton } from "antd";
 import dayjs from "dayjs";
 import { useState } from "react";
 import { styled } from "styled-components";
-import { User_info } from "../../../types/databaseRetrunTypes";
+import { User_info } from "../../../types/databaseReturnTypes";
 import ProfileAvatar from "../../common/Avatar";
 
 type AvatarShapeType = "circle" | "square";
