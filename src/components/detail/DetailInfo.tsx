@@ -1,16 +1,16 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { transDate } from "../../common/dayjs";
 import {
   formatNumberWithCommas,
   formatProductStatus,
 } from "../../common/formatUtil";
-import { ShippingType } from "../../types/detailTyps";
+import { selectorAuctionSingleData } from "../../redux/modules/auctionSingleDataSlice";
+import { selectorBidCustomModal } from "../../redux/modules/bidCustomModalSlice";
+import { ShippingType } from "../../types/detailTypes";
 import { Spacer } from "../ui/Spacer";
 import BidButton from "./BidButton";
-import { useSelector } from "react-redux";
-import { selectorBidCustomModal } from "../../redux/modules/bidCustomModalSlice";
-import { selectorAuctionSingleData } from "../../redux/modules/auctionSingleDataSlice";
 
 const SPACER_HEIGHT = 10;
 const SPACER_LITERARY = 20;

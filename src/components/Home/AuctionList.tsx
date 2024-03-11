@@ -1,21 +1,16 @@
-import {
-  useMutation,
-  useQueries,
-  useQuery,
-  useQueryClient,
-} from "@tanstack/react-query";
+const AuctionList = () => null;
+export default AuctionList;
+/* import { useQueries } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
-import { Auction_post } from "../../types/databaseReturnTypes";
 import { fetchAuctionMaxBid } from "../../api/bid";
-import { AuctionStatus } from "../../types/detailTyps";
 import { calculateAuctionStatusAndTime } from "../../common/dayjs";
+import AuctionCard from "../../features/auctionList/ui/AuctionCard";
+import SkeletonAuctionCard from "../../features/auctionList/ui/SkeletonAuctionCard";
 import { supabase } from "../../supabase";
-import { fetchLikes, updateLike } from "../../api/likes";
-import SkeletonAuctionCard from "./SkeletonAuctionCard";
-import AuctionCard from "./auctionCard/AuctionCard";
+import { Auction_post } from "../../types/databaseReturnTypes";
+import { AuctionStatus } from "../../types/detailTypes";
 
-// 경매 리스트 컴포넌트에 대한 props 타입 정의
 interface AuctionListProps {
   auctions: Auction_post[] | undefined;
   actionListStatus: "error" | "pending" | "success";
@@ -25,7 +20,8 @@ const AuctionList: React.FC<AuctionListProps> = ({
   auctions,
   actionListStatus,
 }) => {
-  const [likesCount, setLikesCount] = useState<{ [key: string]: number }>({});
+  // 현재 로그인한 사용자의 ID를 저장하는 state
+  const [userId, setUserId] = useState<string | null>(null);
 
   // 각 경매에 대한 최대 입찰가를 가져오기 위한 쿼리
   const bidsQueries: any[] = useQueries({
@@ -38,11 +34,6 @@ const AuctionList: React.FC<AuctionListProps> = ({
           ),
       })) || [],
   });
-
-  //  좋아요 상태를 관리하는 state
-  const [likes, setLikes] = useState<{ [key: string]: boolean }>({});
-  // 현재 로그인한 사용자의 ID를 저장하는 state
-  const [userId, setUserId] = useState<string | null>(null);
 
   // 각 경매의 상태(경매 전, 진행중, 종료)를 관리하는 state
   const [auctionStatuses, setAuctionStatuses] = useState<
@@ -74,75 +65,6 @@ const AuctionList: React.FC<AuctionListProps> = ({
       authListener.subscription.unsubscribe();
     };
   }, []);
-
-  // 사용자의 좋아요 상태를 불러오는 쿼리
-  const { data: likeQuery, refetch: refetchLike } = useQuery({
-    queryKey: ["likes", userId],
-    queryFn: () => fetchLikes(userId!),
-    enabled: !!userId,
-  });
-
-  // 좋아요 업데이트를 위한 뮤테이션 정의
-  const queryClient = useQueryClient();
-  const likeMutation = useMutation({
-    mutationFn: (data: {
-      auctionId: string;
-      userId: string;
-      isLiked: boolean;
-    }) => updateLike(data),
-    onSuccess: () => {
-      // invalidateQueries 호출 시 객체 형태로 queryKey를 전달
-      if (userId) {
-        queryClient.invalidateQueries({
-          queryKey: ["likes", userId],
-        });
-
-        refetchLike();
-      }
-    },
-  });
-
-  //좋아요 버튼 클릭 핸들러
-  const LikeButtonClickHandler = (
-    event: React.MouseEvent<HTMLButtonElement>,
-    auctionId: string
-  ) => {
-    event.preventDefault();
-    event.stopPropagation();
-
-    if (!userId) {
-      alert("로그인한 사용자만 찜 기능을 사용하실 수 있습니다");
-      return;
-    }
-
-    // 좋아요 상태 토글
-    const isLiked = !likes[auctionId];
-    const previousLikes = { ...likes };
-    const previousLikesCount = { ...likesCount };
-
-    // 서버에 좋아요 상태 업데이트 요청
-    likeMutation.mutate(
-      { auctionId, userId, isLiked: !likes[auctionId] },
-      {
-        onSuccess: () => {
-          // 요청이 성공한 후에 로컬 상태 업데이트
-          setLikes({ ...likes, [auctionId]: isLiked });
-          setLikesCount((prev) => ({
-            ...prev,
-            [auctionId]: isLiked
-              ? (prev[auctionId] || 0) + 1
-              : Math.max((prev[auctionId] || 1) - 1, 0),
-          }));
-        },
-        onError: () => {
-          // 오류가 발생한 경우 이전 상태로 되돌림
-          setLikes(previousLikes);
-          setLikesCount(previousLikesCount);
-          alert("좋아요 상태 업데이트에 실패했습니다");
-        },
-      }
-    );
-  };
 
   return (
     <StListwrapper>
@@ -282,3 +204,4 @@ const StNoItemMessage = styled.h4`
   font-size: 1.5rem;
   line-height: 2.3rem;
 `;
+ */

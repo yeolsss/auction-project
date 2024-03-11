@@ -163,14 +163,3 @@ export const fetchGetAuctionById = async (auction_id?: string) => {
     return data;
   }
 };
-
-export const fetchAuctionMaxBid = async (inputAuctionId: string) => {
-  const { data, error } = await connectSupabase.rpc(
-    "fetch_max_bid_for_auction",
-    { input_auction_id: inputAuctionId }
-  );
-  if (error) throw new Error(error.message);
-  if (!data) throw new Error("data is null");
-  console.log(data[0]);
-  return data[0];
-};

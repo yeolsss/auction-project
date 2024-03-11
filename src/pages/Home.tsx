@@ -1,52 +1,27 @@
-import { useQueryClient } from "@tanstack/react-query";
-import { useEffect } from "react";
-import { useInView } from "react-intersection-observer";
-import { styled } from "styled-components";
-import Category from "../components/category/Category";
-import AuctionList from "../components/Home/AuctionList";
-import Sort from "../components/sort/Sort";
+import { useNavigate } from "react-router-dom";
+import useAuctionBid from "../features/auctionList/hooks/useAuctionBid";
+import useAuctionList from "../features/auctionList/hooks/useAuctionList";
+import useLike from "../features/auctionList/hooks/useLike";
+import AuctionCard from "../features/auctionList/ui/AuctionCard";
+import AuctionEmptyList from "../features/auctionList/ui/AuctionEmptyList";
+import AuctionList from "../features/auctionList/ui/AuctionList";
 import useCategory from "../features/category/hooks/useCategory";
+import Category from "../features/category/ui/Category";
 import useSort from "../features/sort/hooks/useSort";
-import useCustomInfinityQuery from "../hooks/useCustomInfinityQuery";
+import Sort from "../features/sort/ui/Sort";
 import { ActionOrderBy } from "../types/databaseReturnTypes";
+
 const Home = () => {
   const { categories, selectCategories, handleOnClickCategory } = useCategory();
   const { sortType, handleOnClickSort } = useSort();
+  const { auctionData, status, ref } = useAuctionList(
+    selectCategories,
+    sortType
+  );
+  const { LikeButtonClickHandler, likes } = useLike();
+  const { bidsQueries, auctionStatuses } = useAuctionBid(auctionData);
 
-  const client = useQueryClient();
-
-  // 사용자 정의 무한 스크롤 쿼리 훅
-  const {
-    data: auctionData,
-    error,
-    fetchNextPage,
-    hasNextPage,
-    isFetching,
-    isFetchingNextPage,
-    status,
-    refetch,
-  } = useCustomInfinityQuery(selectCategories, sortType);
-
-  useEffect(() => {
-    // 선택된 카테고리가 바뀔 때마다 쿼리를 리셋
-    client.invalidateQueries({ queryKey: ["projects", selectCategories] });
-  }, [selectCategories]);
-
-  useEffect(() => {
-    // sortType 값이 변경될 때마다 쿼리를 무효화
-    (async () => {
-      await refetch();
-    })();
-  }, [sortType]);
-
-  // 뷰포트 내의 요소 감지를 위한 Intersection Observer 훅
-  const { ref } = useInView({
-    threshold: 0,
-    onChange: (inView) => {
-      if (!inView || !hasNextPage || isFetchingNextPage) return;
-      fetchNextPage();
-    },
-  });
+  const navigate = useNavigate();
 
   return (
     <>
@@ -85,7 +60,35 @@ const Home = () => {
         </Sort>
 
         {/* auction List Component */}
-        <AuctionList auctions={auctionData} actionListStatus={status} />
+        <AuctionList>
+          {status === "pending" &&
+            Array.from({ length: 5 }, (v, i) => i).map((_, index) => (
+              <AuctionList.SkeletonAuction>
+                <AuctionList.SkeletonAuction.SkeletonAuctionCard key={index} />
+              </AuctionList.SkeletonAuction>
+            ))}
+
+          {auctionData && auctionData.length > 0 ? (
+            <ul>
+              {auctionData.map((auction, index) => {
+                return (
+                  <AuctionCard
+                    auction={auction}
+                    bidsQueries={bidsQueries}
+                    handler={() => navigate(`/detail/${auction.auction_id}`)}
+                    index={index}
+                    auctionStatuses={auctionStatuses}
+                    likes={likes}
+                    LikeButtonClickHandler={LikeButtonClickHandler}
+                  />
+                );
+              })}
+            </ul>
+          ) : (
+            <AuctionEmptyList />
+          )}
+        </AuctionList>
+
         <div ref={ref} style={{ height: "20px" }}></div>
       </div>
       {/* 무한 스크롤을 위한 참조 요소 */}
@@ -95,32 +98,3 @@ const Home = () => {
 };
 
 export default Home;
-
-const StSortButton = styled.div`
-  width: 1200px;
-  display: flex;
-  margin: 20px auto;
-  justify-content: flex-end;
-  user-select: none;
-  background-color: #eee;
-  padding: 15px 10px;
-  border-radius: 5px;
-  @media (max-width: 1200px) {
-    width: 98%;
-  }
-  button {
-    border: none;
-    font-size: 1.2rem;
-    padding: 5px 10px;
-    border-radius: 3px;
-    font-weight: bold;
-    cursor: pointer;
-    background-color: transparent;
-    &:last-of-type {
-      margin-left: 10px;
-    }
-    &:hover {
-      background-color: #fffacd;
-    }
-  }
-`;

@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react";
 import { styled } from "styled-components";
-import SortButton from "../button/SortButton";
+import SortButton from "../../../components/button/SortButton";
 
 interface SortTypes extends React.FC<PropsWithChildren> {
   SortButton: typeof SortButton;

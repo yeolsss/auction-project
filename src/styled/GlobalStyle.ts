@@ -153,7 +153,7 @@ const GlobalStyle = styled.createGlobalStyle`
     min-height: 100vh;
     height: 100%;
     position: relative;
-    --main-color: #023e7d;
+    --main-color: #2d3436;
     --sub-color: #fffacd;
   }
 

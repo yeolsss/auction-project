@@ -8,7 +8,6 @@ export const fetchAuctionMaxBid = async (inputAuctionId: string) => {
   );
   if (error) throw new Error(error.message);
   if (!data) throw new Error("data is null");
-
   return data[0];
 };
 
