@@ -1,17 +1,17 @@
-import { Auction_post } from "../types/databaseReturnTypes";
-import { calculateAuctionStatusAndTime } from "../common/dayjs";
+import { useQueryClient } from "@tanstack/react-query";
 import { useEffect, useRef } from "react";
-import { AuctionStatus } from "../types/detailTyps";
+import { useSelector } from "react-redux";
+import { fetchPatchAuctionPost } from "../api/auction";
+import { calculateAuctionStatusAndTime } from "../common/dayjs";
 import { useAppDispatch } from "../redux/config/configStore";
+import { selectorAuctionSingleData } from "../redux/modules/auctionSingleDataSlice";
 import {
   selectorAuctionTimeStamp,
   setAuctionTimeStamp,
 } from "../redux/modules/auctionTimestampSlice";
-import { useSelector } from "react-redux";
-import { useQueryClient } from "@tanstack/react-query";
-import { fetchPatchAuctionPost } from "../api/auction";
+import { Auction_post } from "../types/databaseReturnTypes";
+import { AuctionStatus } from "../types/detailTypes";
 import { useCustomMutation } from "./useCustomMutation";
-import { selectorAuctionSingleData } from "../redux/modules/auctionSingleDataSlice";
 
 const useAuctionStatus = () => {
   const { auctionData } = useSelector(selectorAuctionSingleData);

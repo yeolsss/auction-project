@@ -12,7 +12,7 @@ import {
   closeBidCustomModal,
   selectorBidCustomModal,
 } from "../../../../redux/modules/bidCustomModalSlice";
-import { AuctionStatus } from "../../../../types/detailTyps";
+import { AuctionStatus } from "../../../../types/detailTypes";
 import { Spacer } from "../../Spacer";
 import { BidCondition } from "../BidCustomModal";
 

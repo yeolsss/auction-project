@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { AuctionStatus, TimeUntil } from "../../types/detailTypes";
 import { RootStateType } from "../config/configStore";
-import { AuctionStatus, TimeUntil } from "../../types/detailTyps";
 
 const initialState: TimeUntil = {
   auctionTimeStamp: "",

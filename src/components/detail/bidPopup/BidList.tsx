@@ -1,12 +1,12 @@
 import { Skeleton } from "antd";
 import React from "react";
+import { useSelector } from "react-redux";
 import { styled } from "styled-components";
 import { fetchGetAuctionBidList } from "../../../api/bid";
 import { useCustomQuery } from "../../../hooks/useCustomQuery";
-import { Bids } from "../../../types/databaseReturnTypes";
-import { AuctionStatus } from "../../../types/detailTyps";
-import { useSelector } from "react-redux";
 import { selectorAuctionSingleData } from "../../../redux/modules/auctionSingleDataSlice";
+import { Bids } from "../../../types/databaseReturnTypes";
+import { AuctionStatus } from "../../../types/detailTypes";
 import { Spacer } from "../../ui/Spacer";
 import { BidCard } from "./BidCard";
 import Title from "./Title";

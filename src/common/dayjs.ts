@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { AuctionStatus, TimeUntil } from "../types/detailTyps";
+import { AuctionStatus, TimeUntil } from "../types/detailTypes";
 
 export function transDate(date: Date | string) {
   return dayjs(date).format("YYYY. MM. DD");

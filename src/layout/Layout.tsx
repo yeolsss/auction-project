@@ -35,7 +35,7 @@ function Layout() {
       {showButton && (
         <FloatButton
           shape="circle"
-          type="primary"
+          type="default"
           onClick={scrollToTop}
           style={{ right: 24 }}
           icon={<VerticalAlignTopOutlined />}

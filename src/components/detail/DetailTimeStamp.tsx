@@ -1,13 +1,13 @@
-import { styled } from "styled-components";
-import { Spacer } from "../ui/Spacer";
-import { AuctionStatus } from "../../types/detailTyps";
-import { useSelector } from "react-redux";
-import { selectorAuctionTimeStamp } from "../../redux/modules/auctionTimestampSlice";
-import { formatNumberWithCommas } from "../../common/formatUtil";
-import { useEffect } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { selectorBidCustomModal } from "../../redux/modules/bidCustomModalSlice";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { styled } from "styled-components";
+import { formatNumberWithCommas } from "../../common/formatUtil";
 import useAuctionStatus from "../../hooks/useAuctionStatus";
+import { selectorAuctionTimeStamp } from "../../redux/modules/auctionTimestampSlice";
+import { selectorBidCustomModal } from "../../redux/modules/bidCustomModalSlice";
+import { AuctionStatus } from "../../types/detailTypes";
+import { Spacer } from "../ui/Spacer";
 
 const DetailTimeStamp = () => {
   // 경매 상태 관리 커스텀 훅

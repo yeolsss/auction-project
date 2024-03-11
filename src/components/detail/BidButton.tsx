@@ -1,10 +1,10 @@
-import { formatAuctionStatusByButton } from "../../common/formatUtil";
-import { AuctionStatus } from "../../types/detailTyps";
-import { styled } from "styled-components";
-import { selectorAuctionTimeStamp } from "../../redux/modules/auctionTimestampSlice";
 import { useSelector } from "react-redux";
+import { styled } from "styled-components";
+import { formatAuctionStatusByButton } from "../../common/formatUtil";
 import { useAppDispatch } from "../../redux/config/configStore";
+import { selectorAuctionTimeStamp } from "../../redux/modules/auctionTimestampSlice";
 import { openBidCustomModal } from "../../redux/modules/bidCustomModalSlice";
+import { AuctionStatus } from "../../types/detailTypes";
 
 const BidButton = () => {
   const dispatch = useAppDispatch();

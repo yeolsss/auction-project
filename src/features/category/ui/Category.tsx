@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react";
 import { styled } from "styled-components";
-import CategoryItem from "../../features/category/ui/CategoryItem";
+import CategoryItem from "./CategoryItem";
 
 interface CategoryTypes extends React.FC<PropsWithChildren> {
   CategoryItem: typeof CategoryItem;
@@ -17,7 +17,7 @@ const StCategoryContainer = styled.div`
   justify-content: center;
   user-select: none;
   flex-wrap: wrap;
-  margin-bottom: 20px;
+  margin: 20px auto;
   button {
     width: 130px;
     height: 50px;
